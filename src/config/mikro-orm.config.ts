@@ -2,6 +2,7 @@ import * as dotenv from 'dotenv';
 import { MikroOrmModuleOptions } from "@mikro-orm/nestjs";
 import { MySqlDriver } from '@mikro-orm/mysql';
 import { Migrator } from '@mikro-orm/migrations';
+import { SeedManager } from '@mikro-orm/seeder';
 
 dotenv.config();
 
@@ -14,7 +15,7 @@ const config: MikroOrmModuleOptions = {
     password: process.env.DB_PASSWORD,
     dbName: process.env.DB_NAME,
     driver: MySqlDriver,
-    extensions: [Migrator],
+    extensions: [Migrator, SeedManager],
     migrations: {
         tableName: 'mo_migrations',
         path: process.env.NODE_ENV === 'production' ? './dist/migrations' : './src/database/migrations',
