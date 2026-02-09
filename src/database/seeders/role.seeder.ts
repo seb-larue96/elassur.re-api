@@ -5,7 +5,7 @@ export class RoleSeeder extends Seeder {
     async run(em: EntityManager): Promise<void> {
         const roles = [
             {name: 'Administrator', status: 'I'},
-            {name: 'Developper', status: 'I'},
+            {name: 'Developer', status: 'I'},
         ];
 
         for (const roleData of roles) {
