@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { APP_GUARD } from '@nestjs/core';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
-import mikroOrmConfig from './config/mikro-orm.config';
 import { ApplicationModule } from './application/application.module';
+import { JwtAuthGuard } from './application/auth/guards/jwt.guard';
+import mikroOrmConfig from './config/mikro-orm.config';
 
 @Module({
   imports: [
@@ -12,6 +14,11 @@ import { ApplicationModule } from './application/application.module';
     ApplicationModule
   ],
   controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    }
+  ],
 })
 export class AppModule {}

@@ -10,7 +10,7 @@ import { mapToFindUserDto } from './mapping/user.mapper';
 import bcrypt from 'bcrypt';
 
 @Injectable()
-export class UsersService {
+export class UserService {
 
   constructor(
     @InjectRepository(User)

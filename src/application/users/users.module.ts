@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { UsersService } from './users.service';
+import { UserService } from './users.service';
 import { UsersController } from './users.controller';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 
@@ -8,7 +8,7 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
     MikroOrmModule.forFeature(['User'])
   ],
   controllers: [UsersController],
-  providers: [UsersService],
-  exports: [UsersService],
+  providers: [UserService],
+  exports: [UserService],
 })
 export class UsersModule {}
