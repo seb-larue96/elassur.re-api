@@ -20,8 +20,8 @@ export class ClientTypesController {
   @ApiResponse({ status: 200, description: 'The client type has been successfully retrieved.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
   @ApiResponse({ status: 404, description: 'Client type not found.' })
-  findOne(@Param('id') id: string) {
-    return this.clientTypesService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.clientTypesService.findOne(id);
   }
 
 }
